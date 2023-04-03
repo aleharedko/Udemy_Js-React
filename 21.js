@@ -87,3 +87,11 @@ if(snikers === 2 && mars === 1 || bounti === 3 && milkiWay ){
 
 console.log( bounti === 3 && milkiWay)
 
+
+let hamburger;
+const fries = NaN;
+const cola = 0;
+const nuggets = 2;
+ 
+if (hamburger && cola || fries === 3 && nuggets) {
+   console.log('Done!')}
