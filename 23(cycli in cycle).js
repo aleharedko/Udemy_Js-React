@@ -17,21 +17,20 @@ for ( let i = 1; i < length; i++) {
     result +='*';
 }
 
-    result += '\n'; /*использование переноса строки*/
+    result += '\n'; /* \n - использование переноса строки*/
 }
 
 console.log(result);
 
 
 first: for(i = 0; i < 3; i++){
-    console.log('ferst level: ${i}'); /* ${i} данная запись указывает непосредственно на само переменную*/
-    for(j = 0; j < 3; j++){
-        console.log('ferst level: ${j}');
-        for(k = 0; k < 3; k++){
-            if (k === 2) continue first; /*слово first является меткой, тоесть слово continue прирывает действие цикла 
+    console.log('first level: ${i}'); /* ${i} данная запись указывает непосредственно на самy переменную*/
+    for (j = 0; j < 3; j++){
+        console.log('second level: ${j}');
+        for (k = 0; k < 3; k++){
+            if (k === 2) break first; /*слово first является меткой, тоесть слово continue прирывает действие цикла 
                                         и переходит к к метке,  данном случае к шлавному циклу*/
-            console.log('ferst level: ${k}');
-            
+            console.log('fhird level: ${k}');    
         }
     }
 }
