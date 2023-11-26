@@ -12,29 +12,32 @@ genres
 P.S. Функции вызывать не обязательно */
 
 'use strict';
+let  numberOfFilms;
 
-let numberOfFilms;
 
 function start() {
-    numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
+    numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?');
 
-    while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
-        numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
+    while (numberOfFilms == ''|| numberOfFilms == null || isNaN(numberOfFilms)){       // isNaN(numberOfFilms) команда принимающая внутырь себя оргумент и возвращает труе при условии, что в нутри не число
+        numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?');
     }
 }
 
-start();
+//start();
+
 
 const personalMovieDB = {
     count: numberOfFilms,
     movies: {},
-    actors: {},
+    actors: {},numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?');
     genres: [],
     privat: false
 };
 
 
-function rememberMyFilms() {
+ 
+
+function rememberMyFilms(){
     for (let i = 0; i < 2; i++) {
         const a = prompt('Один из последних просмотренных фильмов?', ''),
               b = prompt('На сколько оцените его?', '');
@@ -46,10 +49,10 @@ function rememberMyFilms() {
             console.log('error');
             i--;
         }
-    }
+  }
 }
 
-rememberMyFilms();
+//rememberMyFilms();
 
 function detectPersonalLevel() {
     if (personalMovieDB.count < 10) {
@@ -63,20 +66,31 @@ function detectPersonalLevel() {
     }
 }
 
-detectPersonalLevel();
+//detectPersonalLevel();
 
-function showMyDB (hidden) {
-    if (!hidden) {
-        console.log(personalMovieDB);
+
+
+
+/*function showMyDB(personalMovieDB){
+    if(personalMovieDB.privat === 'false'){
+        console.log('personalMovieDB');
     }
 }
-
-showMyDB(personalMovieDB.privat);
-
-function writeYourGenres() {
-    for (let i = 1; i <= 3; i++) {
-        personalMovieDB.genres[i - 1] = prompt(`Ваш любимый жанр под номером ${i}`);
+*/
+function showMyDB(hidden){ //hidden - скрытый
+    if(!hidden){
+        console.log(personalMovieDB.privat);
     }
+}
+showMyDB();
+
+function writeYourGenres(){
+ for (i = 1; i < 4; i++){
+    const question = prompt (`Ваш любимый жанр под номером ${i}`);
+     question = personalMovieDB.genres[i - 1];  // нужно писать i - 1, т.к. пользователь не знает програмирования и его отсчёт начинается с еденицы
+ }
 }
 
 writeYourGenres();
+
+console.log(personalMovieDB); 
